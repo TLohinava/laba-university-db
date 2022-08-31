@@ -5,7 +5,7 @@ import com.solvd.university.doc.SchoolCert;
 import com.solvd.university.doc.TestCertificate;
 import com.solvd.university.people.*;
 import com.solvd.university.people.staff.*;
-import com.solvd.university.people.structure.University;
+import com.solvd.university.structure.University;
 
 import java.time.LocalDate;
 import java.util.*;

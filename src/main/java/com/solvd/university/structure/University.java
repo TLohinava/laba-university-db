@@ -1,4 +1,4 @@
-package com.solvd.university.people.structure;
+package com.solvd.university.structure;
 
 import com.solvd.university.people.Student;
 import com.solvd.university.people.staff.Employee;

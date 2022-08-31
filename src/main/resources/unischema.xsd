@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="university">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" />
+                <xs:element name="date" type="xs:date" />
+                <xs:element name="faculties">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="faculty" maxOccurs="6" minOccurs="2">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="facultyname" type="xs:string" />
+                                        <xs:element name="studentscapacity" type="xs:integer" />
+                                        <xs:element name="employees">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="employee" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:all>
+                                                                <xs:element name="name" type="xs:string" />
+                                                                <xs:element name="surname" type="xs:string" />
+                                                            </xs:all>
+                                                            <xs:attribute name="gender" type="xs:string" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="students">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="student" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="name" type="xs:string" />
+                                                                <xs:element name="surname" type="xs:string" />
+                                                                <xs:element name="certificates">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="testcertificate" maxOccurs="3">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="issuedate" type="xs:date" />
+                                                                                        <xs:element name="mark" type="xs:integer" />
+                                                                                        <xs:element name="subject" type="xs:string" />
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                            <xs:element name="schoolcertificate">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="mark" />
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
