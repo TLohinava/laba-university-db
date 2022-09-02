@@ -26,6 +26,8 @@ public class Parser implements IParse {
     List<University.Faculty> faculties;
     String name;
     String surname;
+    String gender;
+    boolean hasUniname, hasDate, hasFacultyname, hasStudentcapacity, hasName, hasSurname, hasIssuedate, hasMark, hasSubject, hasMeanmark;
 
     @Override
     public void parse(String fileName) {
@@ -45,12 +47,10 @@ public class Parser implements IParse {
                             university.setFaculties(faculties);
                             break;
                         case "uniname":
-                            event = reader.nextEvent();
-                            university.setUniName(event.asCharacters().getData());
+                            hasUniname = true;
                             break;
                         case "date":
-                            event = reader.nextEvent();
-                            university.setDateOfEstablishment(LocalDate.parse(event.asCharacters().getData()));
+                            hasDate = true;
                             break;
                         case "faculty":
                             faculty = university.new Faculty("", 0);
@@ -59,31 +59,26 @@ public class Parser implements IParse {
                             faculties.add(faculty);
                             break;
                         case "facultyname":
-                            event = reader.nextEvent();
-                            faculty.setFacultyName(event.asCharacters().getData());
+                            hasFacultyname = true;
                             break;
                         case "studentscapacity":
-                            event = reader.nextEvent();
-                            faculty.setStudentsCapacity(Integer.parseInt(event.asCharacters().getData()));
+                            hasStudentcapacity = true;
                             break;
                         case "employee":
                             employee = new Employee("", "", Person.Gender.X);
                             Attribute genderAttribute = startElement.getAttributeByName(new QName("gender"));
                             if (genderAttribute != null) {
-                                String gen = genderAttribute.getValue().toUpperCase();
-                                employee.setGender(Person.Gender.valueOf(gen));
+                                gender = genderAttribute.getValue().toUpperCase();
                             }
                             break;
                         case "student":
                             student = new Student("", "", Person.Gender.X);
                             break;
                         case "name":
-                            event = reader.nextEvent();
-                            name = event.asCharacters().getData();
+                            hasName = true;
                             break;
                         case "surname":
-                            event = reader.nextEvent();
-                            surname = event.asCharacters().getData();
+                            hasSurname = true;
                             break;
                         case "certificates":
                             studentCerts = new ArrayList<>();
@@ -93,30 +88,60 @@ public class Parser implements IParse {
                             studentCerts.add(testCert);
                             break;
                         case "issuedate":
-                            event = reader.nextEvent();
-                            testCert.setDateOfIssue(LocalDate.parse(event.asCharacters().getData()));
+                            hasIssuedate = true;
                             break;
                         case "mark":
-                            event = reader.nextEvent();
-                            testCert.setCertScore(Integer.parseInt(event.asCharacters().getData()));
+                            hasMark = true;
                             break;
                         case "subject":
-                            event = reader.nextEvent();
-                            testCert.setSubject(event.asCharacters().getData());
+                            hasSubject = true;
                             break;
                         case "schoolcertificate":
                             schoolCert = new SchoolCert(0);
                             studentCerts.add(schoolCert);
                             break;
                         case "meanmark":
-                            event = reader.nextEvent();
-                            schoolCert.setCertScore(Integer.parseInt(event.asCharacters().getData()));
+                            hasMeanmark = true;
                             break;
+                    }
+                } else if (event.isCharacters()) {
+                    String data = event.asCharacters().getData();
+
+                    if (hasUniname) {
+                        university.setUniName(data);
+                        hasUniname = false;
+                    } else if (hasDate) {
+                        university.setDateOfEstablishment(LocalDate.parse(data));
+                        hasDate = false;
+                    } else if (hasFacultyname) {
+                        faculty.setFacultyName(data);
+                        hasFacultyname = false;
+                    } else if (hasStudentcapacity) {
+                        faculty.setStudentsCapacity(Integer.parseInt(data));
+                        hasStudentcapacity = false;
+                    } else if (hasName) {
+                        name = data;
+                        hasName = false;
+                    } else if (hasSurname) {
+                        surname = data;
+                        hasSurname = false;
+                    } else if (hasIssuedate) {
+                        testCert.setDateOfIssue(LocalDate.parse(data));
+                        hasIssuedate = false;
+                    } else if (hasMark) {
+                        testCert.setCertScore(Integer.parseInt(data));
+                        hasMark = false;
+                    } else if (hasSubject) {
+                        testCert.setSubject(data);
+                        hasSubject = false;
+                    } else if (hasMeanmark) {
+                        schoolCert.setCertScore(Integer.parseInt(data));
+                        hasMeanmark = false;
                     }
                 } else if (event.isEndElement()) {
                     EndElement endElement = event.asEndElement();
 
-                    switch(endElement.getName().getLocalPart()) {
+                    switch (endElement.getName().getLocalPart()) {
                         case "faculty":
                             faculty.setStudents(students);
                             faculty.setEmployees(employees);
@@ -124,6 +149,7 @@ public class Parser implements IParse {
                         case "employee":
                             employee.setFirstName(name);
                             employee.setSurname(surname);
+                            employee.setGender(Person.Gender.valueOf(gender));
                             employees.add(employee);
                             break;
                         case "student":
@@ -138,8 +164,5 @@ public class Parser implements IParse {
         } catch (FileNotFoundException | XMLStreamException e) {
             e.printStackTrace();
         }
-        System.out.println(university.getUniName());
-        System.out.println(university.getFaculties().get(3).getStudents().size());
-        System.out.println(university.getFaculties().get(3).getStudents().get(2).getFullName());
     }
 }
