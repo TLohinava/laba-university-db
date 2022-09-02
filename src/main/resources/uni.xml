@@ -10,12 +10,12 @@
             <studentscapacity>1000</studentscapacity>
             <employees>
                 <employee gender="male">
-                    <empname>Andrey</empname>
-                    <empsurname>Andreevich</empsurname>
+                    <name>Andrey</name>
+                    <surname>Andreevich</surname>
                 </employee>
                 <employee gender="female">
-                    <empname>Anna</empname>
-                    <empsurname>Annova</empsurname>
+                    <name>Anna</name>
+                    <surname>Annova</surname>
                 </employee>
             </employees>
             <students>
@@ -98,12 +98,12 @@
             <studentscapacity>300</studentscapacity>
             <employees>
                 <employee gender="male">
-                    <empname>Alexey</empname>
-                    <empsurname>Andrush</empsurname>
+                    <name>Alexey</name>
+                    <surname>Andrush</surname>
                 </employee>
                 <employee gender="female">
-                    <empname>Arina</empname>
-                    <empsurname>Antukh</empsurname>
+                    <name>Arina</name>
+                    <surname>Antukh</surname>
                 </employee>
             </employees>
             <students>
@@ -186,12 +186,12 @@
             <studentscapacity>50</studentscapacity>
             <employees>
                 <employee gender="female">
-                    <empname>Alesia</empname>
-                    <empsurname>Andrush</empsurname>
+                    <name>Alesia</name>
+                    <surname>Andrush</surname>
                 </employee>
                 <employee gender="female">
-                    <empname>Afina</empname>
-                    <empsurname>Atrushkova</empsurname>
+                    <name>Afina</name>
+                    <surname>Atrushkova</surname>
                 </employee>
             </employees>
             <students>
@@ -274,12 +274,12 @@
             <studentscapacity>100</studentscapacity>
             <employees>
                 <employee gender="male">
-                    <empname>Ali</empname>
-                    <empsurname>Atoo</empsurname>
+                    <name>Ali</name>
+                    <surname>Atoo</surname>
                 </employee>
                 <employee gender="female">
-                    <empname>Yanina</empname>
-                    <empsurname>Antonovna</empsurname>
+                    <name>Yanina</name>
+                    <surname>Antonovna</surname>
                 </employee>
             </employees>
             <students>

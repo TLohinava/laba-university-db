@@ -1,27 +1,16 @@
 package com.solvd.university;
 
-import com.solvd.university.doc.Certificate;
-import com.solvd.university.doc.SchoolCert;
-import com.solvd.university.doc.TestCertificate;
-import com.solvd.university.people.Person;
-import com.solvd.university.people.Student;
+import com.solvd.university.doc.*;
+import com.solvd.university.people.*;
 import com.solvd.university.people.staff.Employee;
 import com.solvd.university.structure.University;
 
 import javax.xml.namespace.QName;
-import javax.xml.stream.XMLEventReader;
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.events.Attribute;
-import javax.xml.stream.events.EndElement;
-import javax.xml.stream.events.StartElement;
-import javax.xml.stream.events.XMLEvent;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import javax.xml.stream.*;
+import javax.xml.stream.events.*;
+import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Parser implements IParse {
 
@@ -35,6 +24,8 @@ public class Parser implements IParse {
     SchoolCert schoolCert;
     University.Faculty faculty;
     List<University.Faculty> faculties;
+    String name;
+    String surname;
 
     @Override
     public void parse(String fileName) {
@@ -44,11 +35,10 @@ public class Parser implements IParse {
 
             while (reader.hasNext()) {
                 XMLEvent event = reader.nextEvent();
-                if (event.getEventType() == XMLStreamConstants.START_ELEMENT) {
+                if (event.isStartElement()) {
                     StartElement startElement = event.asStartElement();
-                    String localName = startElement.getName().getLocalPart();
 
-                    switch (localName) {
+                    switch (startElement.getName().getLocalPart()) {
                         case "university":
                             university = new University("", LocalDate.of(1970, 1, 1));
                             faculties = new ArrayList<>();
@@ -63,7 +53,6 @@ public class Parser implements IParse {
                             university.setDateOfEstablishment(LocalDate.parse(event.asCharacters().getData()));
                             break;
                         case "faculty":
-                            event = reader.nextEvent();
                             faculty = university.new Faculty("", 0);
                             students = new ArrayList<>();
                             employees = new ArrayList<>();
@@ -85,32 +74,21 @@ public class Parser implements IParse {
                                 employee.setGender(Person.Gender.valueOf(gen));
                             }
                             break;
-                        case "empname":
-                            event = reader.nextEvent();
-                            employee.setFirstName(event.asCharacters().getData());
-                            break;
-                        case "empsurname":
-                            event = reader.nextEvent();
-                            employee.setSurname(event.asCharacters().getData());
-                            break;
                         case "student":
-                            event = reader.nextEvent();
                             student = new Student("", "", Person.Gender.X);
                             break;
                         case "name":
                             event = reader.nextEvent();
-                            student.setFirstName(event.asCharacters().getData());
+                            name = event.asCharacters().getData();
                             break;
                         case "surname":
                             event = reader.nextEvent();
-                            student.setSurname(event.asCharacters().getData());
+                            surname = event.asCharacters().getData();
                             break;
                         case "certificates":
-                            event = reader.nextEvent();
                             studentCerts = new ArrayList<>();
                             break;
                         case "testcertificate":
-                            event = reader.nextEvent();
                             testCert = new TestCertificate(LocalDate.of(1970, 1, 1), 0, "");
                             studentCerts.add(testCert);
                             break;
@@ -127,7 +105,6 @@ public class Parser implements IParse {
                             testCert.setSubject(event.asCharacters().getData());
                             break;
                         case "schoolcertificate":
-                            event = reader.nextEvent();
                             schoolCert = new SchoolCert(0);
                             studentCerts.add(schoolCert);
                             break;
@@ -136,23 +113,33 @@ public class Parser implements IParse {
                             schoolCert.setCertScore(Integer.parseInt(event.asCharacters().getData()));
                             break;
                     }
-                }
-
-                if (event.isEndElement()) {
+                } else if (event.isEndElement()) {
                     EndElement endElement = event.asEndElement();
-                    if (endElement.getName().getLocalPart().equals("faculty")) {
-                        faculty.setStudents(students);
-                        faculty.setEmployees(employees);
-                    } else if (endElement.getName().getLocalPart().equals("employee")) {
-                        employees.add(employee);
-                    } else if (endElement.getName().getLocalPart().equals("student")) {
-                        student.setCertificates(studentCerts);
-                        students.add(student);
+
+                    switch(endElement.getName().getLocalPart()) {
+                        case "faculty":
+                            faculty.setStudents(students);
+                            faculty.setEmployees(employees);
+                            break;
+                        case "employee":
+                            employee.setFirstName(name);
+                            employee.setSurname(surname);
+                            employees.add(employee);
+                            break;
+                        case "student":
+                            student.setFirstName(name);
+                            student.setSurname(surname);
+                            student.setCertificates(studentCerts);
+                            students.add(student);
+                            break;
                     }
                 }
             }
         } catch (FileNotFoundException | XMLStreamException e) {
             e.printStackTrace();
         }
+        System.out.println(university.getUniName());
+        System.out.println(university.getFaculties().get(3).getStudents().size());
+        System.out.println(university.getFaculties().get(3).getStudents().get(2).getFullName());
     }
 }

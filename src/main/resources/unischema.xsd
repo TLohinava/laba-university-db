@@ -20,8 +20,8 @@
                                                     <xs:element name="employee" maxOccurs="unbounded">
                                                         <xs:complexType>
                                                             <xs:all>
-                                                                <xs:element name="empname" type="xs:string" />
-                                                                <xs:element name="empsurname" type="xs:string" />
+                                                                <xs:element name="name" type="xs:string" />
+                                                                <xs:element name="surname" type="xs:string" />
                                                             </xs:all>
                                                             <xs:attribute name="gender" type="xs:string" />
                                                         </xs:complexType>
