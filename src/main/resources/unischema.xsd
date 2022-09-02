@@ -4,12 +4,12 @@
     <xs:element name="university">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="xs:string" />
+                <xs:element name="uniname" type="xs:string" />
                 <xs:element name="date" type="xs:date" />
                 <xs:element name="faculties">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="faculty" maxOccurs="6" minOccurs="2">
+                            <xs:element name="faculty" minOccurs="2" maxOccurs="6" >
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="facultyname" type="xs:string" />
@@ -20,8 +20,8 @@
                                                     <xs:element name="employee" maxOccurs="unbounded">
                                                         <xs:complexType>
                                                             <xs:all>
-                                                                <xs:element name="name" type="xs:string" />
-                                                                <xs:element name="surname" type="xs:string" />
+                                                                <xs:element name="empname" type="xs:string" />
+                                                                <xs:element name="empsurname" type="xs:string" />
                                                             </xs:all>
                                                             <xs:attribute name="gender" type="xs:string" />
                                                         </xs:complexType>
@@ -52,7 +52,7 @@
                                                                             <xs:element name="schoolcertificate">
                                                                                 <xs:complexType>
                                                                                     <xs:sequence>
-                                                                                        <xs:element name="mark" />
+                                                                                        <xs:element name="meanmark" />
                                                                                     </xs:sequence>
                                                                                 </xs:complexType>
                                                                             </xs:element>

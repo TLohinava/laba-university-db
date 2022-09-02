@@ -2,7 +2,7 @@
 
 <university xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:noNamespaceSchemaLocation="./unischema.xsd">
-    <name>Belarusian State Medical University</name>
+    <uniname>Belarusian State Medical University</uniname>
     <date>1921-01-01</date>
     <faculties>
         <faculty>
@@ -10,12 +10,12 @@
             <studentscapacity>1000</studentscapacity>
             <employees>
                 <employee gender="male">
-                    <name>Andrey</name>
-                    <surname>Andreevich</surname>
+                    <empname>Andrey</empname>
+                    <empsurname>Andreevich</empsurname>
                 </employee>
                 <employee gender="female">
-                    <name>Anna</name>
-                    <surname>Annova</surname>
+                    <empname>Anna</empname>
+                    <empsurname>Annova</empsurname>
                 </employee>
             </employees>
             <students>
@@ -25,7 +25,7 @@
                     <certificates>
                         <testcertificate>
                             <issuedate>2022-07-01</issuedate>
-                            <mark>80</mark>
+                            <mark>82</mark>
                             <subject>Biology</subject>
                         </testcertificate>
                         <testcertificate>
@@ -39,7 +39,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>80</mark>
+                            <meanmark>80</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -63,7 +63,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>80</mark>
+                            <meanmark>80</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -87,7 +87,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>87</mark>
+                            <meanmark>87</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -98,12 +98,12 @@
             <studentscapacity>300</studentscapacity>
             <employees>
                 <employee gender="male">
-                    <name>Alexey</name>
-                    <surname>Andrush</surname>
+                    <empname>Alexey</empname>
+                    <empsurname>Andrush</empsurname>
                 </employee>
                 <employee gender="female">
-                    <name>Arina</name>
-                    <surname>Antukh</surname>
+                    <empname>Arina</empname>
+                    <empsurname>Antukh</empsurname>
                 </employee>
             </employees>
             <students>
@@ -127,7 +127,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>80</mark>
+                            <meanmark>80</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -151,7 +151,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>80</mark>
+                            <meanmark>80</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -175,7 +175,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>87</mark>
+                            <meanmark>87</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -186,12 +186,12 @@
             <studentscapacity>50</studentscapacity>
             <employees>
                 <employee gender="female">
-                    <name>Alesia</name>
-                    <surname>Andrush</surname>
+                    <empname>Alesia</empname>
+                    <empsurname>Andrush</empsurname>
                 </employee>
                 <employee gender="female">
-                    <name>Afina</name>
-                    <surname>Atrushkova</surname>
+                    <empname>Afina</empname>
+                    <empsurname>Atrushkova</empsurname>
                 </employee>
             </employees>
             <students>
@@ -215,7 +215,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>80</mark>
+                            <meanmark>80</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -239,7 +239,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>80</mark>
+                            <meanmark>80</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -263,7 +263,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>87</mark>
+                            <meanmark>87</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -274,12 +274,12 @@
             <studentscapacity>100</studentscapacity>
             <employees>
                 <employee gender="male">
-                    <name>Ali</name>
-                    <surname>Atoo</surname>
+                    <empname>Ali</empname>
+                    <empsurname>Atoo</empsurname>
                 </employee>
                 <employee gender="female">
-                    <name>Yanina</name>
-                    <surname>Antonovna</surname>
+                    <empname>Yanina</empname>
+                    <empsurname>Antonovna</empsurname>
                 </employee>
             </employees>
             <students>
@@ -303,7 +303,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>80</mark>
+                            <meanmark>80</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -327,7 +327,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>80</mark>
+                            <meanmark>80</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
@@ -351,7 +351,7 @@
                             <subject>Russian</subject>
                         </testcertificate>
                         <schoolcertificate>
-                            <mark>87</mark>
+                            <meanmark>87</meanmark>
                         </schoolcertificate>
                     </certificates>
                 </student>
