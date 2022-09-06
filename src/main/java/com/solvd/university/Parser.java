@@ -4,6 +4,8 @@ import com.solvd.university.doc.*;
 import com.solvd.university.people.*;
 import com.solvd.university.people.staff.Employee;
 import com.solvd.university.structure.University;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.*;
@@ -28,6 +30,8 @@ public class Parser implements IParse {
     String surname;
     String gender;
     boolean hasUniname, hasDate, hasFacultyname, hasStudentcapacity, hasName, hasSurname, hasIssuedate, hasMark, hasSubject, hasMeanmark;
+
+    private static final Logger LOGGER = LogManager.getLogger(Parser.class);
 
     @Override
     public void parse(String fileName) {
@@ -162,7 +166,7 @@ public class Parser implements IParse {
                 }
             }
         } catch (FileNotFoundException | XMLStreamException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
     }
 }
