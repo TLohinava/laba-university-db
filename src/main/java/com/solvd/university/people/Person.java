@@ -1,16 +1,13 @@
 package com.solvd.university.people;
 
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(propOrder = {"firstName", "surname", "gender"})
 public abstract class Person {
 
     private String firstName;
     private String surname;
     private Gender gender;
-
-    public Person(String firstName, String surname, Gender gender) {
-        this.firstName = firstName;
-        this.surname = surname;
-        this.gender = gender;
-    }
 
     public enum Gender {
         MALE, FEMALE, X

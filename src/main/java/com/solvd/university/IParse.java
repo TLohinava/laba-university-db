@@ -1,9 +1,9 @@
 package com.solvd.university;
 
-import javax.xml.stream.XMLStreamException;
-import java.io.FileNotFoundException;
+import com.solvd.university.structure.University;
 
 public interface IParse {
 
-    void parse(String fileName) throws FileNotFoundException, XMLStreamException;
+    University parse(String fileName);
+
 }
