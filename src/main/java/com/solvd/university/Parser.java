@@ -3,6 +3,7 @@ package com.solvd.university;
 import com.solvd.university.doc.*;
 import com.solvd.university.people.*;
 import com.solvd.university.people.staff.Employee;
+import com.solvd.university.structure.Faculty;
 import com.solvd.university.structure.University;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,25 +17,25 @@ import java.util.*;
 
 public class Parser implements IParse {
 
-    List<Certificate> studentCerts;
-    List<Student> students;
-    List<Employee> employees;
-    University university;
-    Employee employee;
-    Student student;
-    TestCertificate testCert;
-    SchoolCert schoolCert;
-    University.Faculty faculty;
-    List<University.Faculty> faculties;
-    String name;
-    String surname;
-    String gender;
-    boolean hasUniname, hasDate, hasFacultyname, hasStudentcapacity, hasName, hasSurname, hasIssuedate, hasMark, hasSubject, hasMeanmark;
+    private List<Certificate> studentCerts;
+    private List<Student> students;
+    private List<Employee> employees;
+    private University university;
+    private Employee employee;
+    private Student student;
+    private TestCertificate testCert;
+    private SchoolCert schoolCert;
+    private Faculty faculty;
+    private List<Faculty> faculties;
+    private String name;
+    private String surname;
+    private String gender;
+    private boolean hasUniname, hasDate, hasFacultyname, hasStudentcapacity, hasName, hasSurname, hasIssuedate, hasMark, hasSubject, hasMeanmark;
 
     private static final Logger LOGGER = LogManager.getLogger(Parser.class);
 
     @Override
-    public void parse(String fileName) {
+    public University parse(String fileName) {
         try {
             XMLInputFactory factory = XMLInputFactory.newInstance();
             XMLEventReader reader = factory.createXMLEventReader(new FileInputStream(fileName));
@@ -46,7 +47,7 @@ public class Parser implements IParse {
 
                     switch (startElement.getName().getLocalPart()) {
                         case "university":
-                            university = new University("", LocalDate.of(1970, 1, 1));
+                            university = new University();
                             faculties = new ArrayList<>();
                             university.setFaculties(faculties);
                             break;
@@ -57,7 +58,7 @@ public class Parser implements IParse {
                             hasDate = true;
                             break;
                         case "faculty":
-                            faculty = university.new Faculty("", 0);
+                            faculty = new Faculty();
                             students = new ArrayList<>();
                             employees = new ArrayList<>();
                             faculties.add(faculty);
@@ -69,14 +70,14 @@ public class Parser implements IParse {
                             hasStudentcapacity = true;
                             break;
                         case "employee":
-                            employee = new Employee("", "", Person.Gender.X);
+                            employee = new Employee();
                             Attribute genderAttribute = startElement.getAttributeByName(new QName("gender"));
                             if (genderAttribute != null) {
                                 gender = genderAttribute.getValue().toUpperCase();
                             }
                             break;
                         case "student":
-                            student = new Student("", "", Person.Gender.X);
+                            student = new Student();
                             break;
                         case "name":
                             hasName = true;
@@ -88,7 +89,7 @@ public class Parser implements IParse {
                             studentCerts = new ArrayList<>();
                             break;
                         case "testcertificate":
-                            testCert = new TestCertificate(LocalDate.of(1970, 1, 1), 0, "");
+                            testCert = new TestCertificate();
                             studentCerts.add(testCert);
                             break;
                         case "issuedate":
@@ -101,7 +102,7 @@ public class Parser implements IParse {
                             hasSubject = true;
                             break;
                         case "schoolcertificate":
-                            schoolCert = new SchoolCert(0);
+                            schoolCert = new SchoolCert();
                             studentCerts.add(schoolCert);
                             break;
                         case "meanmark":
@@ -168,5 +169,6 @@ public class Parser implements IParse {
         } catch (FileNotFoundException | XMLStreamException e) {
             LOGGER.error(e);
         }
+        return university;
     }
 }

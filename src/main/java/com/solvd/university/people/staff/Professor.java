@@ -2,8 +2,8 @@ package com.solvd.university.people.staff;
 
 public class Professor extends Employee {
 
-    public Professor(String firstName, String surname, Gender gender) {
-        super(firstName, surname, gender);
+    public Professor() {
+        super();
     }
 
     public String getTitle() {
