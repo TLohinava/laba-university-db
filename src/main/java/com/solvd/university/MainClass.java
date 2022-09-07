@@ -1,80 +1,99 @@
 package com.solvd.university;
 
-import com.solvd.university.doc.Certificate;
 import com.solvd.university.doc.SchoolCert;
 import com.solvd.university.doc.TestCertificate;
-import com.solvd.university.people.*;
-import com.solvd.university.people.staff.*;
+import com.solvd.university.people.Person;
+import com.solvd.university.people.Student;
+import com.solvd.university.people.staff.Employee;
+import com.solvd.university.structure.Faculty;
 import com.solvd.university.structure.University;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.io.File;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
 
 public class MainClass {
 
+    private static final Logger LOGGER = LogManager.getLogger(MainClass.class);
+
     public static void main(String[] args) {
+            String fileName = "./src/main/resources/uni.xml";
+            IParse demo = new Parser();
+            demo.parse(fileName);
 
-        University bsmu = new University("Belarusian State Medical University", LocalDate.of(1921, 1, 1));
+            String fileName1 = "./src/main/resources/uniJaxb.xml";
+            IParse jaxb = new JaxbParser();
+            jaxb.parse(fileName1);
 
-        University.Faculty generalMedicine = bsmu.new Faculty("General Medicine", 1000);
-        University.Faculty pediatrics = bsmu.new Faculty("Pediatrics", 300);
-        University.Faculty dentistry = bsmu.new Faculty("Dentistry", 50);
-        University.Faculty pharmacology = bsmu.new Faculty("Pharmacology", 100);
+            University bsmu = new University();
+            bsmu.setUniName("BSMU");
+            bsmu.setDateOfEstablishment(LocalDate.of(1970, 1, 1));
 
-        List<Employee> employeesGM = new ArrayList<>();
-        employeesGM.add(new Professor("Andrey", "Andreevich", Person.Gender.MALE));
-        employeesGM.add(new Professor("Anna", "Annova", Person.Gender.FEMALE));
-        generalMedicine.setEmployees(employeesGM);
+            Student alice = new Student();
+            alice.setFirstName("Alisa");
+            alice.setSurname("Shunkevich");
+            alice.setGender(Person.Gender.FEMALE);
+            Employee mark = new Employee();
+            mark.setFirstName("Mark");
+            mark.setSurname("Avrelii");
+            mark.setGender(Person.Gender.MALE);
 
-        List<Certificate> certificates = List.of(new TestCertificate(LocalDate.of(2022, 7, 1), (int) (Math.random() * 100 + 1), "Biology"),
-                new TestCertificate(LocalDate.of(2022, 6, 25), (int) (Math.random() * 100 + 1), "Chemistry"),
-                new TestCertificate(LocalDate.of(2022, 6, 17), (int) (Math.random() * 100 + 1), "Russian"),
-                new SchoolCert((int) (Math.random() * 100 + 1)));
+            TestCertificate bio = new TestCertificate();
+            bio.setCertScore(80);
+            bio.setSubject("Biology");
+            bio.setDateOfIssue(LocalDate.of(2022, 7, 1));
+            TestCertificate chem = new TestCertificate();
+            chem.setCertScore(84);
+            chem.setSubject("Chemistry");
+            chem.setDateOfIssue(LocalDate.of(2022, 6, 22));
+            TestCertificate rus = new TestCertificate();
+            rus.setCertScore(86);
+            rus.setSubject("Russian");
+            rus.setDateOfIssue(LocalDate.of(2022, 6, 15));
+            SchoolCert school = new SchoolCert();
+            school.setCertScore(85);
 
-        List<Student> studentsGM = new ArrayList<>();
-        studentsGM.add(new Student("Tuva", "Iner", Person.Gender.FEMALE));
-        studentsGM.add(new Student("Alex", "May", Person.Gender.MALE));
-        studentsGM.add(new Student("Ira", "Irovich", Person.Gender.FEMALE));
-        generalMedicine.setStudents(studentsGM);
-        studentsGM.forEach(student -> student.setCertificates(certificates));
+            alice.setCertificates(List.of(bio, chem, rus, school));
 
-        List<Employee> employeesPed = new ArrayList<>();
-        employeesPed.add(new Professor("Alexey", "Andrush", Person.Gender.MALE));
-        employeesPed.add(new Professor("Arina", "Antukh", Person.Gender.FEMALE));
-        pediatrics.setEmployees(employeesPed);
+            Faculty genMed = new Faculty();
+            genMed.setFacultyName("General Medicine");
+            genMed.setEmployees(List.of(mark, mark));
+            genMed.setStudentsCapacity(1000);
+            genMed.setStudents(List.of(alice));
 
-        List<Student> studentsPed = new ArrayList<>();
-        studentsPed.add(new Student("Nina", "Novik", Person.Gender.FEMALE));
-        studentsPed.add(new Student("Alex", "May", Person.Gender.MALE));
-        studentsPed.add(new Student("Klive", "Novak", Person.Gender.MALE));
-        pediatrics.setStudents(studentsPed);
-        studentsPed.forEach(student -> student.setCertificates(certificates));
+            Faculty ped = new Faculty();
+            ped.setFacultyName("Pediatrics");
+            ped.setEmployees(List.of(mark));
+            ped.setStudentsCapacity(300);
+            ped.setStudents(List.of(alice));
 
-        List<Employee> employeesDent = new ArrayList<>();
-        employeesDent.add(new Professor("Alesia", "Andrush", Person.Gender.FEMALE));
-        employeesDent.add(new Professor("Afina", "Atrushkova", Person.Gender.FEMALE));
-        dentistry.setEmployees(employeesDent);
+            Faculty pharm = new Faculty();
+            pharm.setFacultyName("Pharmacology");
+            pharm.setEmployees(List.of(mark));
+            pharm.setStudentsCapacity(100);
+            pharm.setStudents(List.of(alice));
 
-        List<Student> studentsDent = new ArrayList<>();
-        studentsDent.add(new Student("Onja", "Itera", Person.Gender.FEMALE));
-        studentsDent.add(new Student("Alex", "Udin", Person.Gender.MALE));
-        studentsDent.add(new Student("Lera", "Naich", Person.Gender.FEMALE));
-        dentistry.setStudents(studentsDent);
-        studentsDent.forEach(student -> student.setCertificates(certificates));
+            Faculty dent = new Faculty();
+            dent.setFacultyName("Dentistry");
+            dent.setEmployees(List.of(mark));
+            dent.setStudentsCapacity(50);
+            dent.setStudents(List.of(alice));
 
-        List<Employee> employeesPharm = new ArrayList<>();
-        employeesPharm.add(new Professor("Ali", "Atoo", Person.Gender.MALE));
-        employeesPharm.add(new Professor("Yanina", "Antonovna", Person.Gender.FEMALE));
-        pharmacology.setEmployees(employeesPharm);
+            bsmu.setFaculties(List.of(genMed, ped, pharm, dent));
 
-        List<Student> studentsPharm = new ArrayList<>();
-        studentsPharm.add(new Student("Anita", "Iner", Person.Gender.FEMALE));
-        studentsPharm.add(new Student("Kira", "Mayovich", Person.Gender.FEMALE));
-        studentsPharm.add(new Student("Ira", "Nizkaya", Person.Gender.FEMALE));
-        pharmacology.setStudents(studentsPharm);
-        studentsPharm.forEach(student -> student.setCertificates(certificates));
-
-        System.out.println(studentsDent.get(1).getCertificates().get(0).getCertScore());
-        System.out.println(studentsDent.get(0).getCertificates().get(1).getCertScore());
+            try {
+                    JAXBContext context = JAXBContext.newInstance(University.class, Faculty.class, Student.class, SchoolCert.class, TestCertificate.class);
+                    Marshaller marshaller = context.createMarshaller();
+                    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+                    marshaller.marshal(bsmu, new File("./src/main/resources/uniJaxb.xml"));
+            } catch (JAXBException e) {
+                LOGGER.error(e);
+            }
     }
 }

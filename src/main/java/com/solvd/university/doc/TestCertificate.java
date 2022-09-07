@@ -1,16 +1,24 @@
 package com.solvd.university.doc;
 
+import com.solvd.university.DateAdapter;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.*;
 
+@XmlRootElement(name = "testCertificate")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class TestCertificate extends Certificate {
-
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDate dateOfIssue;
+    @XmlElement
     private String subject;
 
-    public TestCertificate(LocalDate dateOfIssue, int certScore, String subject) {
-        super(certScore);
-        this.dateOfIssue = dateOfIssue;
-        this.subject = subject;
+    public TestCertificate() {
+        super();
     }
 
     public static int calcCertScore() {
