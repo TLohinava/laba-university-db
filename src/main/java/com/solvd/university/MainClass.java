@@ -1,5 +1,6 @@
 package com.solvd.university;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.university.doc.SchoolCert;
 import com.solvd.university.doc.TestCertificate;
 import com.solvd.university.people.Person;
@@ -95,5 +96,7 @@ public class MainClass {
             } catch (JAXBException e) {
                 LOGGER.error(e);
             }
+
+            ObjectMapper mapper = new ObjectMapper();
     }
 }
