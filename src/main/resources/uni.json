@@ -1,0 +1,65 @@
+{
+"uniName": "Belarusian State Medical University",
+"dateOfEstablishment": "1921-01-01",
+"faculties": [ {
+    "facultyName": "General Medicine",
+    "studentsCapacity": 1000,
+    "employees": [ {
+        "name": "Andrey",
+        "surname": "Andreevich"
+      }, {
+      "name": "Anna",
+      "surname": "Annova"
+      } ],
+    "students": [{
+        "name": "Tuva",
+        "surname": "Iner"
+      }
+  ]
+  }, {
+  "facultyName": "Pediatrics",
+  "studentsCapacity": 300,
+  "employees": [ {
+    "name": "Andrey",
+    "surname": "Andreevich"
+  }, {
+    "name": "Anna",
+    "surname": "Annova"
+  } ],
+  "students": [{
+    "name": "Inna",
+    "surname": "Iner"
+  }
+  ]
+}, {
+  "facultyName": "Dentistry",
+  "studentsCapacity": 50,
+  "employees": [ {
+    "name": "Andrey",
+    "surname": "Andreevich"
+  }, {
+    "name": "Anna",
+    "surname": "Annova"
+  } ],
+  "students": [{
+    "name": "Anjei",
+    "surname": "Itov"
+  }
+  ]
+}, {
+  "facultyName": "Pharmacology",
+  "studentsCapacity": 100,
+  "employees": [ {
+    "name": "Andrey",
+    "surname": "Andreevich"
+  }, {
+    "name": "Anna",
+    "surname": "Annova"
+  } ],
+  "students": [{
+    "name": "Anna",
+    "surname": "Nikolaic"
+  }
+  ]
+}]
+}

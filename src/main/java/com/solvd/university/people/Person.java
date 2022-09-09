@@ -1,10 +1,13 @@
 package com.solvd.university.people;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder = {"firstName", "surname", "gender"})
 public abstract class Person {
 
+    @JsonProperty("name")
     private String firstName;
     private String surname;
     private Gender gender;

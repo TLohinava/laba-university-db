@@ -1,5 +1,6 @@
-package com.solvd.university;
+package com.solvd.university.parsers.jaxb;
 
+import com.solvd.university.parsers.IParse;
 import com.solvd.university.structure.University;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,4 +28,3 @@ public class JaxbParser implements IParse {
         return university;
     }
 }
-
