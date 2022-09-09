@@ -1,4 +1,4 @@
-package com.solvd.university;
+package com.solvd.university.parsers;
 
 import com.solvd.university.structure.University;
 

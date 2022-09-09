@@ -1,400 +1,65 @@
-
-"uniname": "Belarusian State Medical University",
-"date": "1921-01-01",
-"faculties": {
-"faculty": [
 {
-"facultyname": "General Medicine",
-"studentscapacity": 1000,
-"employees": {
-"employee": [
-{
-"name": "Andrey",
-"surname": "Andreevich"
-},
-{
-"name": "Anna",
-"surname": "Annova"
-}
-]
-},
-"students": {
-"student": [
-{
-"name": "Tuva",
-"surname": "Iner",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 82,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 80,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 80,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 80
-}
-}
-},
-{
-"name": "Alex",
-"surname": "May",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 87,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 84,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 82,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 80
-}
-}
-},
-{
-"name": "Ira",
-"surname": "Irovich",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 65,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 75,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 67,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 87
-}
-}
-}
-]
-}
-},
-{
-"facultyname": "Pediatrics",
-"studentscapacity": 300,
-"employees": {
-"employee": [
-{
-"name": "Alexey",
-"surname": "Andrush"
-},
-{
-"name": "Arina",
-"surname": "Antukh"
-}
-]
-},
-"students": {
-"student": [
-{
-"name": "Nina",
-"surname": "Novik",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 80,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 80,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 80,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 80
-}
-}
-},
-{
-"name": "Alex",
-"surname": "May",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 87,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 84,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 82,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 80
-}
-}
-},
-{
-"name": "Klive",
-"surname": "Novak",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 65,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 75,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 67,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 87
-}
-}
-}
-]
-}
-},
-{
-"facultyname": "Dentistry",
-"studentscapacity": 50,
-"employees": {
-"employee": [
-{
-"name": "Alesia",
-"surname": "Andrush"
-},
-{
-"name": "Afina",
-"surname": "Atrushkova"
-}
-]
-},
-"students": {
-"student": [
-{
-"name": "Onja",
-"surname": "Itera",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 80,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 80,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 80,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 80
-}
-}
-},
-{
-"name": "Alex",
-"surname": "Udin",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 87,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 84,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 82,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 80
-}
-}
-},
-{
-"name": "Lera",
-"surname": "Naich",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 65,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 75,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 67,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 87
-}
-}
-}
-]
-}
-},
-{
-"facultyname": "Pharmacology",
-"studentscapacity": 100,
-"employees": {
-"employee": [
-{
-"name": "Ali",
-"surname": "Atoo"
-},
-{
-"name": "Yanina",
-"surname": "Antonovna"
-}
-]
-},
-"students": {
-"student": [
-{
-"name": "Anita",
-"surname": "Iner",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 80,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 80,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 80,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 80
-}
-}
-},
-{
-"name": "Kira",
-"surname": "Mayovich",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 87,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 84,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 82,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 80
-}
-}
-},
-{
-"name": "Ira",
-"surname": "Nizkaya",
-"certificates": {
-"testcertificate": [
-{
-"issuedate": "2022-07-01",
-"mark": 65,
-"subject": "Biology"
-},
-{
-"issuedate": "2022-06-25",
-"mark": 75,
-"subject": "Chemistry"
-},
-{
-"issuedate": "2022-06-17",
-"mark": 67,
-"subject": "Russian"
-}
-],
-"schoolcertificate": {
-"meanmark": 87
-}
-}
-}
-]
-}
-}
-]
-}
+"uniName": "Belarusian State Medical University",
+"dateOfEstablishment": "1921-01-01",
+"faculties": [ {
+    "facultyName": "General Medicine",
+    "studentsCapacity": 1000,
+    "employees": [ {
+        "name": "Andrey",
+        "surname": "Andreevich"
+      }, {
+      "name": "Anna",
+      "surname": "Annova"
+      } ],
+    "students": [{
+        "name": "Tuva",
+        "surname": "Iner"
+      }
+  ]
+  }, {
+  "facultyName": "Pediatrics",
+  "studentsCapacity": 300,
+  "employees": [ {
+    "name": "Andrey",
+    "surname": "Andreevich"
+  }, {
+    "name": "Anna",
+    "surname": "Annova"
+  } ],
+  "students": [{
+    "name": "Inna",
+    "surname": "Iner"
+  }
+  ]
+}, {
+  "facultyName": "Dentistry",
+  "studentsCapacity": 50,
+  "employees": [ {
+    "name": "Andrey",
+    "surname": "Andreevich"
+  }, {
+    "name": "Anna",
+    "surname": "Annova"
+  } ],
+  "students": [{
+    "name": "Anjei",
+    "surname": "Itov"
+  }
+  ]
+}, {
+  "facultyName": "Pharmacology",
+  "studentsCapacity": 100,
+  "employees": [ {
+    "name": "Andrey",
+    "surname": "Andreevich"
+  }, {
+    "name": "Anna",
+    "surname": "Annova"
+  } ],
+  "students": [{
+    "name": "Anna",
+    "surname": "Nikolaic"
+  }
+  ]
+}]
 }

@@ -1,6 +1,6 @@
 package com.solvd.university.structure;
 
-import com.solvd.university.DateAdapter;
+import com.solvd.university.parsers.jaxb.DateAdapter;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;

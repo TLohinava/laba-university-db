@@ -1,6 +1,6 @@
 package com.solvd.university.doc;
 
-import com.solvd.university.DateAdapter;
+import com.solvd.university.parsers.jaxb.DateAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,6 +12,7 @@ import java.time.*;
 @XmlRootElement(name = "testCertificate")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class TestCertificate extends Certificate {
+
     @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDate dateOfIssue;
     @XmlElement

@@ -1,6 +1,7 @@
-package com.solvd.university;
+package com.solvd.university.parsers.stax;
 
 import com.solvd.university.doc.*;
+import com.solvd.university.parsers.IParse;
 import com.solvd.university.people.*;
 import com.solvd.university.people.staff.Employee;
 import com.solvd.university.structure.Faculty;
@@ -51,10 +52,10 @@ public class Parser implements IParse {
                             faculties = new ArrayList<>();
                             university.setFaculties(faculties);
                             break;
-                        case "uniname":
+                        case "uniName":
                             hasUniname = true;
                             break;
-                        case "date":
+                        case "dateOfEstablishment":
                             hasDate = true;
                             break;
                         case "faculty":
@@ -63,10 +64,10 @@ public class Parser implements IParse {
                             employees = new ArrayList<>();
                             faculties.add(faculty);
                             break;
-                        case "facultyname":
+                        case "facultyName":
                             hasFacultyname = true;
                             break;
-                        case "studentscapacity":
+                        case "studentsCapacity":
                             hasStudentcapacity = true;
                             break;
                         case "employee":
@@ -79,7 +80,7 @@ public class Parser implements IParse {
                         case "student":
                             student = new Student();
                             break;
-                        case "name":
+                        case "firstName":
                             hasName = true;
                             break;
                         case "surname":
@@ -88,11 +89,11 @@ public class Parser implements IParse {
                         case "certificates":
                             studentCerts = new ArrayList<>();
                             break;
-                        case "testcertificate":
+                        case "testCertificate":
                             testCert = new TestCertificate();
                             studentCerts.add(testCert);
                             break;
-                        case "issuedate":
+                        case "issueDate":
                             hasIssuedate = true;
                             break;
                         case "mark":
@@ -101,7 +102,7 @@ public class Parser implements IParse {
                         case "subject":
                             hasSubject = true;
                             break;
-                        case "schoolcertificate":
+                        case "schoolCertificate":
                             schoolCert = new SchoolCert();
                             studentCerts.add(schoolCert);
                             break;
